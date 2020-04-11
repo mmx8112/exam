@@ -11,9 +11,13 @@ public interface UserMapper {
     User findById(Integer id);
 
     int save(User user);
+
     int updateById(User user);
+
     int insertBatch(List<User> userList);
+
     int deleteById(int id);
+
     int deleteByIdList(List<Integer> idList);
 
 
