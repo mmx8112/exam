@@ -10,9 +10,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class ExamApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(ExamApplication.class, args);
-		log.info("11111111111");
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(ExamApplication.class, args);
+        log.info("启动成功");
+    }
 
 }

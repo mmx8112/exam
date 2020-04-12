@@ -5,7 +5,7 @@
 <mapper namespace="com.limai.exam.dao.UserMapper">
 
     <select id="findById" resultType="com.limai.exam.entity.User">
-        select id,username from user where id = #{id,jdbcType=INTEGER} and deleted = 1;
+        select id,username,telephone,email,score,passed,accept from user where id = #{id,jdbcType=INTEGER} and deleted = 1;
     </select>
 
     <insert id="save" parameterType="com.limai.exam.entity.User" useGeneratedKeys="true" keyProperty="id"
