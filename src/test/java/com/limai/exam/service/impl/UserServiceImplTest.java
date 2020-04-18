@@ -36,6 +36,13 @@ public class UserServiceImplTest {
         log.info("插入的新的user={}", user);
 
     }
+
+    @Test
+    public void findAll() {
+        List<User> all = userService.findAll();
+        all.forEach(user -> log.info(user.toString()));
+    }
+
     @Test
     public void updateById() {
         User user = new User();
@@ -44,13 +51,15 @@ public class UserServiceImplTest {
         int save = userService.updateById(user);
 
     }
+
     @Test
     public void deleteByIdList() {
 
-        int i = userService.deleteByIdList(Arrays.asList(1,2));
-        log.info("删除 "+i);
+        int i = userService.deleteByIdList(Arrays.asList(1, 2));
+        log.info("删除 " + i);
 
     }
+
     @Test
     public void insertBatch() {
         User user1 = new User();
@@ -75,7 +84,7 @@ public class UserServiceImplTest {
 
         Integer num = userService.insertBatch(userArrayList);
 
-        log.info("批量插入"+num);
+        log.info("批量插入" + num);
 
     }
 

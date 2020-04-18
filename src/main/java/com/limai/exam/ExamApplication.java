@@ -6,7 +6,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @Slf4j
-@MapperScan("com.limai.exam.dao")
 @SpringBootApplication
 public class ExamApplication {
 

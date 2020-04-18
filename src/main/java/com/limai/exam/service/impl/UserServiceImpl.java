@@ -20,6 +20,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public List<User> findAll() {
+        List<User> userList = userMapper.findAll();
+        return userList;
+    }
+
+    @Override
     public Integer save(User user) {
         userMapper.save(user);
         return user.getId();

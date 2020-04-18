@@ -10,6 +10,8 @@ public interface UserMapper {
 
     User findById(Integer id);
 
+    List<User> findAll();
+
     int save(User user);
 
     int updateById(User user);
