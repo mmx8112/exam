@@ -1,9 +1,16 @@
 package com.limai.exam.service;
 
-import com.limai.exam.entity.User;
+import com.limai.exam.entity.dto.UserAnswer;
+import com.limai.exam.entity.po.User;
+import com.limai.exam.entity.qo.UserQO;
 
 import java.util.List;
 
+/**
+ *
+ * @author mahuahua
+ * @date 2020/4/18 17:40
+ */
 public interface UserService {
 
     User findById(Integer id);
@@ -18,4 +25,7 @@ public interface UserService {
 
     int deleteByIdList(List<Integer> idList);
 
+    List<User> findByUserQO(UserQO userQO);
+
+    int submit(UserAnswer userAnswer);
 }

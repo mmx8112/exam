@@ -1,9 +1,9 @@
 package com.limai.exam.service.impl;
 
-import com.limai.exam.entity.User;
+import com.limai.exam.entity.po.User;
+import com.limai.exam.entity.qo.UserQO;
 import com.limai.exam.service.UserService;
 import lombok.extern.slf4j.Slf4j;
-import org.assertj.core.util.Lists;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +14,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ *
+ * @author mhh
+ * @date 2020/4/18 17:40
+ */
 @SpringBootTest
 @RunWith(SpringRunner.class)
 @Slf4j
@@ -40,6 +45,15 @@ public class UserServiceImplTest {
     @Test
     public void findAll() {
         List<User> all = userService.findAll();
+        all.forEach(user -> log.info(user.toString()));
+    }
+    @Test
+    public void findByUserQO() {
+        UserQO userQO = new UserQO();
+        userQO.setUsername("xiaoxiao2");
+        userQO.setPageNum(2);
+        userQO.setPageSize(3);
+        List<User> all = userService.findByUserQO(userQO);
         all.forEach(user -> log.info(user.toString()));
     }
 

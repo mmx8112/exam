@@ -1,7 +1,7 @@
 package com.limai.exam.constant;
 
 /**
- * @author
+ * @author mahuahua
  */
 public enum PassedEnum {
     /**

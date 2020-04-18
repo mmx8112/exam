@@ -1,5 +1,6 @@
-package com.limai.exam.entity;
+package com.limai.exam.entity.po;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,6 +10,7 @@ import java.util.Date;
 
 /**
  * @author mahuahua
+ * @date 2020/4/18 17:37
  */
 @Data
 @NoArgsConstructor
@@ -38,6 +40,7 @@ public class User implements Serializable {
      */
     private Integer deleted;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GTM+8")
     private Date createTime;
 
     private Date updateTime;

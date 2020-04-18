@@ -5,6 +5,10 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * @author mahuahua
+ * @date 2020年4月18日17:57:15
+ */
 @Slf4j
 @SpringBootApplication
 public class ExamApplication {

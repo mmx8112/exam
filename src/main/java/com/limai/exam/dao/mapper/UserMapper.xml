@@ -4,14 +4,25 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.limai.exam.dao.UserMapper">
 
-    <select id="findById" resultType="com.limai.exam.entity.User">
+    <select id="findById" resultType="com.limai.exam.entity.po.User">
         select id,username,telephone,email,score,passed,accept from user where id = #{id,jdbcType=INTEGER} and deleted = 0;
     </select>
-    <select id="findAll" resultType="com.limai.exam.entity.User">
+
+    <select id="findAll" resultType="com.limai.exam.entity.po.User">
         select id,username,telephone,email,score,passed,accept from user where deleted=0;
     </select>
 
-    <insert id="save" parameterType="com.limai.exam.entity.User" useGeneratedKeys="true" keyProperty="id"
+    <select id="findByUserQO" resultType="com.limai.exam.entity.po.User">
+        select id,username,telephone,email,score,passed,accept from user
+        <where>
+            deleted = 0
+            <if test="username != null ">and username = #{username}</if>
+
+        </where>
+        order by id desc limit ${(pageNum-1)*pageSize},${pageSize}
+    </select>
+
+    <insert id="save" parameterType="com.limai.exam.entity.po.User" useGeneratedKeys="true" keyProperty="id"
             keyColumn="id">
         insert into user (username,telephone,email,create_time,update_time)
         values(#{username,jdbcType=VARCHAR},#{telephone,jdbcType=VARCHAR},#{email,jdbcType=VARCHAR},now(),now());
@@ -32,17 +43,18 @@
         </foreach>
     </insert>
 
-    <update id="updateById" parameterType="com.limai.exam.entity.User">
+    <update id="updateById" parameterType="com.limai.exam.entity.po.User">
         update user
         <trim prefix="set" suffixOverrides=",">
             <if test="username!=null">username=#{username},</if>
             <if test="telephone!=null">telephone=#{telephone},</if>
             <if test="email!=null">email=#{email},</if>
+            <if test="score!=null">email=#{score},</if>
         </trim>
         where id=#{id}
     </update>
-    
-    <delete id="deleteById" >
+
+    <delete id="deleteById">
         update user
         set deleted=0
         where id=#{id}
